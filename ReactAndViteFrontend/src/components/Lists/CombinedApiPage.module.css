@@ -30,16 +30,19 @@
 }
 .container .card:hover{
     height: 600px;
+    overflow: auto;
 }
 .container .card .imgbox{
+    align-items: center;
+    height:100vh;
     position: relative;
-    max-width: 260px;
-    height: 260px;
+    max-width: 200px;
+    height: 200px;
     border-radius: 5px;
     background-color: #fff;
     overflow: hidden;
-    top: -60px;
-    left: 20px;
+    top: 0;
+    left: 0;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 .container .card .imgbox img{
