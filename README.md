@@ -43,7 +43,7 @@ The application is now running. Access the frontend at http://localhost:3000.
 Usage
 The application allows users to view random articles from NASA and Bored API. Users can refresh the page to see different articles.
 
-#technologies-used
+## technologies-used
 Spring Boot: Backend framework for Java-based applications.
 React: JavaScript library for building user interfaces.
 NASA API: Provides access to various NASA data, including articles.
