@@ -8,7 +8,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: random
     ports:
-      - "3306:3306"
+      - "3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
@@ -20,7 +20,7 @@ services:
       context: ./Backend
       dockerfile: Dockerfile.txt
     ports:
-      - "8080:8080"
+      - "8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/random
     depends_on:
@@ -33,7 +33,7 @@ services:
       context: ./Frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:5500"
+      - "6000:6001"
     volumes:
       - .:/Frontend/src/app
       - /Frontend/node_modules
