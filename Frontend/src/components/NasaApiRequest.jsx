@@ -6,7 +6,7 @@ function NasaApiRequest() {
 
   useEffect(() => {
     // Send a GET request to your backend API endpoint
-    axios.get('http://localhost:8080/api/nasa/random')
+    axios.get('http://localhost:8081/api/nasa/random')
       .then(response => {
         setData(response.data);
       })
