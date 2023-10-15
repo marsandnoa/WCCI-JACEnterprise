@@ -1,6 +1,7 @@
 version: '3'
+
 services:
-  mysql:
+  jacenterprise-mysql:
     image: mysql:8.0.27
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -15,12 +16,12 @@ services:
       timeout: 10s
       retries: 10
 
-  springboot-app:
+  jacenterprise-springboot-app:
     build:
       context: ./Backend
       dockerfile: Dockerfile.txt
     ports:
-      - "8080"
+      - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/random
     depends_on:
@@ -28,12 +29,14 @@ services:
         condition: service_healthy
     command: ["java", "-jar", "app.jar"]
 
-  react-app:
+  jacenterprise-react-app:
     build:
       context: ./Frontend
       dockerfile: Dockerfile
     ports:
-      - "6000:6001"
+      - "25000:6001"
     volumes:
       - .:/Frontend/src/app
       - /Frontend/node_modules
+    depends_on:
+      - springboot-app
