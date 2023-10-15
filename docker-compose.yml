@@ -27,3 +27,13 @@ services:
       mysql:
         condition: service_healthy
     command: ["java", "-jar", "app.jar"]
+
+  react-app:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:5500"
+    volumes:
+      - .:/Frontend/src/app
+      - /Frontend/node_modules
